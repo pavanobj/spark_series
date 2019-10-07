@@ -86,7 +86,7 @@ object MoviesAndSpark {
     user_id = rawList.map(x => x.user_id).head.toInt
     mov_watch_count = rawList.map(x => x.movie_id).size
     latest_movie_rated = rawList.sortWith(_.date_of_rating > _.date_of_rating).map(x => x.movie_id).head
-    first_movie_rated = rawList.sortWith(_.date_of_rating < _.date_of_rating).map(x => x.movie_id).last
+    first_movie_rated = rawList.sortWith(_.date_of_rating < _.date_of_rating).map(x => x.movie_id).head
     more_than_six_rtngs = if (rawList.map(x => x.rating).size > 6) "Y" else "NA"
     less_than_two_rtngs = if (rawList.map(x => x.rating).size < 2) "Y" else "NA"
     highest_rating = rawList.map(x => x.rating).sortWith(_ > _).head
